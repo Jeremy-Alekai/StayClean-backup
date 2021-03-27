@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/styles.css" rel="stylesheet">
+    <title>Employee Registration</title>
+</head>
+
+<body>
+    <!-- registration info -->
+
+    <div class="card" style="width: 45rem;background-color: gray; align-content: center;margin-left: 450px;margin-top:60px;">
+        <div class="card-body" style="width: 700px">
+            <!--  -->
+            <h1 class="mb-4" style="color:lightgray;">Employee Registration Form</h1>
+            <!-- the registration form starts here -->
+            <form method="POST" action="" class="row g-3" enctype="multipart/form-data" style="align-content: center;margin-left:25px;">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Employee Name</label>
+                    <!-- will ask for some clarity about the aria-label="First Name" on the next line below-->
+                    <input type="text" class="form-control" placeholder="employee name" aria-label="First name" />
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">User Name</label>
+                    <input type="text" class="form-control" placeholder="username" aria-label="First name" />
+                </div>
+
+                <div class="row">
+                    <!-- role at the company -->
+                    <div class="col-md-3">
+                        <label for="validationDefault04" class="form-label">Role</label>
+                        <select class="form-select" id="validationDefault04" required>
+                    <option>Driver</option>
+                    <option>Conductor</option>
+                    </select>
+                    </div>
+                    <!-- gender selection -->
+                    <div class="col-md-3">
+                        <label for="validationDefault04" class="form-label">Gender</label>
+                        <select class="form-select" id="validationDefault04" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                        </select>
+                    </div>
+
+                    <!-- age -->
+                    <div class="col-md-3">
+                        <label for="validationDefault04" class="form-label">Year Of Birth</label>
+                        <input type="text" class="form-control" id="age" placeholder="age" />
+                    </div>
+                </div>
+
+                <!-- residence -->
+                <div class="col-8">
+                    <label for="inputAddress" class="form-label">NIN number</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="NIN" />
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <label for="inputAddress2" class="form-label">Driver License</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="license number" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="formFileMultiple" class="form-label">Upload documents</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    </div>
+                    <!-- tel number -->
+                    <div class="col-7">
+                        <label for="inputAddress" class="form-label">Tel Number</label
+              >
+              <input
+                type="text" class="form-control" id="inputAddress" placeholder="+256-758-328"/>
+            </div>
+               
+            <!-- Residence -->
+            
+            <div class="col-5">
+              <label for="inputAddress" class="form-label">Residence</label
+        >
+        <input
+          type="text" class="form-control" id="inputAddress" placeholder="e.g. Nsambya"/>
+      </div>
+                </div>
+
+                <!-- <div class="col-md-2">
+                    <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" />
+                    </div> -->
+
+                    <div class="col-12">
+                        <button style="width: 650px;height: 40px;" type="submit" class="btn btn-primary"><span style="font-weight:4rem;">Register Employee</span></button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
