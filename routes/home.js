@@ -6,11 +6,11 @@ const router = express.Router();
 // })
 
 router.get('/', (req, res) => {
-    res.render('createEmployee1', { title: 'StayClean Employee Registration' });
+    res.render('home', { title: 'StayClean Employee Registration' });
 })
 
-router.post('/reg', (req, res) => {
-    res.render('createEmployee1', { title: 'StayClean Employee Registration' });
+router.post('/', (req, res) => {
+    res.render('home', { title: 'StayClean Employee Registration' });
 })
 
 module.exports = router;

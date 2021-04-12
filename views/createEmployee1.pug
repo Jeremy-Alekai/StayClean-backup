@@ -2,7 +2,7 @@ extends layout
 block content
     header.card-header
         h4.card-title Add Employee (Driver or Conductor) 
-    form(method="POST" action='/employee/addemployee' enctype="multipart/form-data")
+    form(method="POST" action='/' enctype="multipart/form-data")
         div.form-row
             div.col.form-group
                 label First name 
@@ -28,13 +28,13 @@ block content
                 div
                     label.form-check.form-check-inline 
                         span.form-check-label accidents    &nbsp
-                        input.form-check-input(type="checkbox" checked name="pastincidence" value="accidents")
+                        input.form-check-input(type="checkbox" name="pastincidence" value="accidents")
                     label.form-check.form-check-inline 
                         span.form-check-label fights   &nbsp
-                        input.form-check-input(type="checkbox" checked name="pastincidence" value="fights")
+                        input.form-check-input(type="checkbox"  name="pastincidence" value="fights")
                     label.form-check.form-check-inline 
                         span.form-check-label fuel thefts &nbsp
-                    input.form-check-input(type="checkbox" checked name="pastincidence" value="fuelthefts")
+                    input.form-check-input(type="checkbox" name="pastincidence" value="fuelthefts")
         div.form-row
             div.col.form-group
                 label Upload image

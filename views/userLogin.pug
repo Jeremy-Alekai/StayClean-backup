@@ -1,0 +1,30 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='/css/bootstrap.min.css' rel='stylesheet')
+  link(href='/css/userLogin.css' rel='stylesheet')
+  title=title 
+body 
+    .container-fluid(style='margin-top: 60px;padding-bottom: 30px;width: 900px;')
+        .row.content
+            .col-md-6.mb-3
+                img.img-fluid(src='/images/login.png' style='width: 800px; height: 500px;margin-left: 40px;' alt='image')
+            .col-md-4(style='margin-left: 40px;')
+                h3.signin-btn.mb-3 Sign In
+                h3.register-btn.mb-3 Register
+                form( method="POST" action='/addemployee/reg' enctype="multipart/form-data")
+                    .form-group
+                    label(for='email') Username
+                    input.form-control(type='email' name='email')
+                    .form-group(style='margin-top: 15px;')
+                    label(for='password') Password
+                    input.form-control(type='password' name='password')
+                    .form-group.form-check(style='margin-top: 20px;')
+                        input#checkbox.form-check-input(type='checkbox' name='checkbox')
+                        label.form-check-label(for='checkbox') Remember me
+                    button.bt.btn-class(style='margin-top: 10px;text-align: center;margin-left: 40px;height: 45px;')
+                        h5 Login
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js' crossorigin='anonymous')
