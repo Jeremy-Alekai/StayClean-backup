@@ -1,0 +1,302 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='/public/css/bootstrap.min.css' rel='stylesheet')
+  // <link href="/public/styles.css" rel="stylesheet">
+  title Employee Registration
+// Button trigger modal
+//
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+  </button>
+// Modal
+#editEmployee.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Employee Form
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | ...
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Save changes
+// nav-bar starts here
+nav.navbar.navbar-expand-lg.navbar-dark(style='background-color: #141413;')
+  .container-fluid
+    a.navbar-brand(href='#')
+      // Add the logo for the company
+      img.d-inline-block.align-top(src='/docs/5.0/assets/brand/bootstrap-logo.svg' alt='' width='30' height='24')
+      strong(style='color: coral;')
+        | Stay
+        span(style='color:lightblue;') Clean
+    .Nav-icons(style='margin-right:50px;')
+      // Navbar content begins here
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          li.nav-item
+            // home icon
+            a.nav-link(aria-current='page' href='home.html')
+              svg.bi.bi-house-door(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z')
+            // Add the word active in the class attribute to show the tab is active
+          li.nav-item
+            // schedule icon
+            a.nav-link(aria-current='page' href='schedule.html')
+              svg.bi.bi-calendar-week(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z')
+                path(d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z')
+          li.nav-item
+            // employee registration
+            a.nav-link(aria-current='page' href='Employee-reg.html')
+              svg.bi.bi-person-lines-fill(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z')
+          li.nav-item
+            a.nav-link.active(href='client-registration.html')
+              svg.bi.bi-people-fill(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+                path(fill-rule='evenodd' d='M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z')
+                path(d='M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z')
+          li.nav-item
+            // sales and client requests report
+            a.nav-link(aria-current='page' href='Employee-reg.html')
+              svg.bi.bi-file-earmark-bar-graph-fill(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm.5 10v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z')
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              svg.bi.bi-box-arrow-right(xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='currentColor' viewbox='0 0 16 16')
+                path(fill-rule='evenodd' d='M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z')
+                path(fill-rule='evenodd' d='M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z')
+            .dropdown-menu(aria-labelledby='navbarDropdownMenuLink' style='background-color: lightblue ;')
+              a.dropdown-item(href='login-form.html') Logout
+// registration info
+.container-fluid
+  .container(style='width: 27rem;height: 500px; align-content: center;margin-left: 10px;margin-top:60px; background-color: lightsteelblue;')
+    // 
+    .form-head(style='background-color: rgb(71, 71, 71); width: 27rem;height: 70px;margin-top: -14px; margin-left: -12px;padding-top: 10px; text-align: center;')
+      h2.mb-4(style='color:lightseagreen;') Client Registration Form
+    // the registration form starts here
+    form.row.g-3(method='POST' action='#' enctype='multipart/form-data' style=' margin-top: 10px;')
+      .row
+        // client name
+        .col-md-6
+          label.form-label(for='inputEmail4') Client Name
+          input.form-control(type='text' placeholder='employee name' name='client name')
+        // type of client
+        .col-md-5
+          label.form-label(for='validationDefault04') Type of Client
+          select#validationDefault04.form-select(required='')
+            option Individual
+            option Business
+      // row 2 starts here
+      .row
+        .col-md-5
+          label.form-label(for='validationDefault04') Type of Request
+          select#validationDefault04.form-select(required='')
+            option Subscription
+            option One Time
+        // service requested for
+        .col-6(style='margin-left:24px;')
+          label.form-label  Service requested for
+          br
+          .form-check-inline
+            input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='sewage/septic tank')
+            label.form-check-label(for='flexCheckDefault')
+              | Sewage/Septic tank
+          .form-check
+            input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='gabbage collection')
+            label.form-check-label(for='flexCheckChecked')
+              | Gabbage Collection
+      // 2nd row ends here
+      // 3rd row starts here
+      // trucks orders
+      .row
+        .col-4
+          label.form-label(for='inputAddress') Trucks needed
+          .col(style='width: 70px;')
+            select#validationDefault04.form-select(required='')
+              option 1
+              option 2
+              option 3
+              option 4
+        // arrival time
+        .col-5(style='margin-left: -20px;')
+          label.form-label(for='inputAddress ') Req. Arrival time
+          .col(style='width: 90px;')
+            select#validationDefault04.form-select(required='')
+              option ...
+              option 8:00-10:00am
+              option 10:00-12:00am
+              option 12:00-2:00pm
+              option 2:00-4:00pm
+        .col.2(style='margin-left: -40px;')
+          label.form-label(for='inputAddress ') Location
+          input#inputAddress .form-control(type='text ' style='width: 120px;' placeholder='e.g. Nsambya ')
+      // 
+      .row
+        // NIN number
+        .col-5
+          label.form-label(for='inputAddress ') NIN number
+          input#inputAddress .form-control(type='text ' placeholder='NIN ' name='nin ')
+        // tel number
+        .col-md-5
+          label.form-label(for='inputAddress ') Tel Number
+          //
+            <div class="col-7">
+            <select class="form-select" id="validationDefault04" required>
+            <option>+256</option>
+            <option>...</option>
+            </select>
+            </div>
+          .col-
+            input#inputAddress .form-control(type='text ' placeholder='+256 759 588 328 ' name='tel number ')
+      // 4th row starts here
+      // Residence
+      .row
+        .col-
+          .form-check-inline
+            .form-check-inline
+              br
+              input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='sewage/septic tank')
+              label.form-check-label(for='flexCheckDefault')
+                | I agree with the terms and conditions
+          br
+          .col-12(style='margin-top: 12px;')
+            button.btn.btn-primary(style='width: 300px;height: 40px; ' type='submit ') Register
+  // The employee list
+  .container-fluid
+    .col-md-6(style='width: 880px;margin-left:445px;margin-top:-500px;background-color: transparent;')
+      .col-sm-6(style='margin-bottom: 15px;')
+        form.d-flex
+          input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
+          button.btn.btn-outline-primary(type='submit') Search
+      table.table.table-striped.table-hover
+        tr.table-dark(style='font-weight: bold;')
+          th Username
+          //
+            Note to self: employee usernames will start with digit(0) 001,002 etc.
+            The client username will start with digit(1) 101, 102 etc.
+          th Employee Name
+          th(colspan='0.5') Gender
+          th Age
+          th Role
+          th Truck No
+          // The truck alphanumeric will start with GCT-101, GTC Stands for Garbbage Cleaning Truck
+          th Tel Number
+          th Residence
+          th Action
+        tr
+          td STC-001
+          td Jeremy Alekai
+          td M
+          td 35
+          td Driver
+          td GCT-101
+          td 070-848-8261
+          td Mulago
+          td
+            a(href='#' data-toggle='modal' data-target='#editEmployee')
+              svg.bi.bi-pencil-square(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z')
+                path(fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z')
+              // modal form  starts here
+              // modal form ends here
+            a(href='#' style='margin-left: 12px;')
+              svg.bi.bi-trash-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='darkred' viewbox='0 0 16 16')
+                path(d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z')
+        tr
+          td STC-003
+          td Shawn Murphy
+          td M
+          td 25
+          td Conductor
+          td GCT-101
+          td 070-848-8261
+          td Kitintale
+        tr
+          td STC-004
+          td Jeremy Alekai
+          td M
+          td 35
+          td Driver
+          td GCT-102
+          td 070-848-8261
+          td Mulago
+        tr
+          td STC-005
+          td Shawn Murphy
+          td M
+          td 25
+          td Conductor
+          td GCT-102
+          td 070-848-8261
+          td Kitintale
+        tr
+          td STC-006
+          td Anecho Jeremy Jeremy Alekai
+          td M
+          td 35
+          td Driver
+          td GCT-103
+          td 070-848-8261
+          td Mulago
+        tr
+          td STC-007
+          td Shawn Murphy
+          td M
+          td 25
+          td Conductor
+          td GCT-103
+          td 070-848-8261
+          td Kitintale
+        tr
+          td STC-008
+          td Jeremy Alekai
+          td M
+          td 35
+          td Driver
+          td GCT-104
+          td 070-848-8261
+          td Mulago
+        tr
+          td STC-009
+          td Shawn Murphy
+          td M
+          td 25
+          td Conductor
+          td GCT-104
+          td 070-848-8261
+          td Kitintale
+        tr
+          td STC-010
+          td Jeremy Alekai
+          td M
+          td 35
+          td Driver
+          td GCT-105
+          td 070-848-8261
+          td Mulago
+      .clearfix
+        ul.pagination
+          li.page-item.disabled
+            a(href='#') Previous
+          li.page-item
+            a.page-link(href='#') 1
+          li.page-item
+            a.page-link(href='#') 2
+          li.page-item.active
+            a.page-link(href='#') 3
+          li.page-item
+            a.page-link(href='#') 4
+          li.page-item
+            a.page-link(href='#') 5
+          li.page-item
+            a.page-link(href='#') Next
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
