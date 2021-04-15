@@ -1,0 +1,73 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous')
+
+  link(href='/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/dashBoardHome.css')
+  title Home
+
+body 
+    include homeNav.pug
+
+    // main content
+    #main
+      .main__container
+        // MAIN TITLE STARTS HERE
+        .main__title
+          img(src='/images/profiles/hello.svg' alt='')
+          .main__greeting
+            h1 Hello Admin
+            p Welcome to the StayClean dashboard
+        // MAIN TITLE ENDS HERE
+        // CHARTS STARTS HERE
+        .charts
+          .charts__left
+            .charts__left__title
+              h1 Weekly Reports
+              .pie-chart-icon(style='margin-left: 250px;margin-top: -40px;')
+                svg.bi.bi-pie-chart-fill(xmlns='http://www.w3.org/2000/svg' width='36' height='36' fill='currentColor' viewbox='0 0 16 16')
+                  path(d='M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z')
+              br
+              .charts__right__cards
+                .row
+                  .card1
+                    h1 Income
+                    p(style='font-size: large;') UGX 205,300
+                  .card2
+                    h1 Clients
+                    p(style='font-size: large;') 70
+                .row
+                  .card3
+                    h1 Orders
+                    p 42
+                  .card4
+                    h1 Pickups
+                    p 8
+            .charts__right
+              .charts__right__title
+                h1 Monthly Stats
+                p StayClean Waste Company, Muyenga
+                img(src='/images/icons/dollar-sign-bag.svg' style='width: 60px;margin-top: -100px;margin-left: 300px;')
+              .charts__right__cards
+                .row
+                  .card1
+                    h1 Income
+                    p(style='font-size: large;') UGX 1,505,300
+                  .card2
+                    h1 Subscribers
+                    p(style='font-size: large;') 50
+                .row
+                  .card3
+                    h1 Orders
+                    p 42
+                  .card4
+                    h1 Pickups
+                    p 8
+            // CHARTS ENDS HERE
+  
+          script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+          script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+          script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')

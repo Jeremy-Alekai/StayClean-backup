@@ -10,20 +10,13 @@ const expressSession = require('express-session')({
 
 //require dotenv
 require('dotenv').config();
+
 //require mongoose
 const mongoose = require('mongoose');
 
 //Require other user routes
-const employeeRoutes = require('./routes/employeeRoutes');
-const driverInterface = require('./routes/driverInterface');
-const userLogin = require('./routes/userLogin');
-const contactUs = require('./routes/contactUs');
-const pickupZones = require('./routes/pickupZones');
-const dashBoard = require('./routes/dashBoard');
-const dashLanding = require('./routes/dashLanding');
-const driverReg = require('./routes/driverReg');
-const createEmployee = require('./routes/createEmployee');
-const home = require('./routes/home');
+const adminHome = require('./routes/home');
+const clientRegList = require('./routes/clientReg');
 
 
 // Instantiations
@@ -62,26 +55,18 @@ app.use(express.static('public'));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
 // Usage of the created Routes
-app.use('/addemployee', employeeRoutes)
-app.use('/driverinterface', driverInterface)
-app.use('/login', userLogin)
-app.use('/contactus', contactUs)
-app.use('/pickupzones', pickupZones)
-app.use('/dashboard', dashBoard)
-app.use('/dashlanding', dashLanding)
-app.use('/adminreg', driverReg)
-app.use('/createEmployee', createEmployee)
-app.use('/', home)
+app.use('/home', adminHome)
+app.use('/clientReg', clientRegList)
 
+// app.use('/login', userLogin)
+// app.use('/contactus', contactUs)
+// app.use('/pickupzones', pickupZones)
+// app.use('/dashboard', dashBoard)
+// app.use('/dashlanding', dashLanding)
+// app.use('/adminreg', driverReg)
+// app.use('/createEmployee', createEmployee)
+// app.use('/', home)
 
-// const employeeRoutes = require('./routes/employeeRoutes')
-// app.use('/employee', employeeRoutes)
-// app.get('/login', (req, res) => {
-//     res.render('smooth-login');
-// })
-// app.get('/pickup-zones', (req, res) => {
-//     res.render('pickup-zones');
-// })
 
 app.post('/', (req, res) => {
         console.log(req.body)
