@@ -1,7 +1,5 @@
 // Dependencies
-const express = require('express')
-
-const bodyParser = require('body-parser');
+const express = require('express');
 const expressSession = require('express-session')({
     secret: 'secret',
     resave: false,
@@ -16,7 +14,9 @@ const mongoose = require('mongoose');
 
 //Require other user routes
 const adminHome = require('./routes/home');
+const employeeReg = require('./routes/employeeReg');
 const clientRegList = require('./routes/clientReg');
+const saleReport = require('./routes/report');
 
 
 // Instantiations
@@ -44,7 +44,8 @@ app.set('views', './views');
 
 //middleware
 app.use(express.urlencoded({ extended: true }))
-    //custom middleware
+
+//custom middleware
 app.use((req, res, next) => {
     console.log("A new request received at " + Date.now());
     next();
@@ -56,23 +57,16 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
 // Usage of the created Routes
 app.use('/home', adminHome)
+app.use('/employeeReg', employeeReg)
 app.use('/clientReg', clientRegList)
-
-// app.use('/login', userLogin)
-// app.use('/contactus', contactUs)
-// app.use('/pickupzones', pickupZones)
-// app.use('/dashboard', dashBoard)
-// app.use('/dashlanding', dashLanding)
-// app.use('/adminreg', driverReg)
-// app.use('/createEmployee', createEmployee)
-// app.use('/', home)
+app.use('/salesReport', saleReport)
 
 
-app.post('/', (req, res) => {
-        console.log(req.body)
-        res.send("Data successfully captured")
-    })
-    //cater for undefined routes
+//app.post('/employeeReg', (req, res) => {
+//         console.log(req.body)
+//         res.send("Data successfully captured")
+//     })
+//cater for undefined routes
 app.get('*', (req, res) => {
     res.send('The route specified doesnt exist')
 })

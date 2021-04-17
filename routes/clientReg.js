@@ -5,11 +5,11 @@ const router = express.Router();
 //     res.send('driver');
 // })
 
-router.get('/clientReg', (req, res) => {
+router.get('/', (req, res) => {
     res.render('clientRegList', { title: 'Client Registration' });
 })
 
-router.post('/clientReg', (req, res) => {
+router.post('/', (req, res) => {
     res.render('clientRegList', { title: 'Client Registration' });
 })
 
