@@ -6,17 +6,17 @@ const employeeSchema = new mongoose.Schema({
 
     username: {
         type: String,
-        required: 'Please Enter username'
+        // required: 'Please Enter username'
     },
 
     truckno: {
         type: String,
-        required: 'Please Enter username'
+        // required: 'Please Enter username'
     },
 
     employeename: {
         type: String,
-        required: 'Please Enter employee name'
+        // required: 'Please Enter employee name'
     },
 
     role: {
@@ -26,21 +26,22 @@ const employeeSchema = new mongoose.Schema({
 
     telnumber: {
         type: String,
-        required: 'Please Enter username'
+        // required: 'Please Enter username'
     },
 
     residence: {
         type: String,
-        required: 'Please Enter username'
+        // required: 'Please Enter username'
     },
-    gender: String,
-    pastincidence: [{
+
+    gender: {
         type: String,
-    }],
-    imageupload: String,
-    role: String,
+    },
+    imageupload: {
+        type: String,
+    },
 
 })
 
 //export the mongoose model
-module.exports = mongoose.model('employeeSchema', employeeSchema);
+module.exports = mongoose.model('Employee', employeeSchema);

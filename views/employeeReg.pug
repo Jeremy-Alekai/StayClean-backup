@@ -35,59 +35,51 @@ body
         h2.mb-4(style="color:lightseagreen;") Employee Registration Form
       br
       //  the registration form starts here 
-      form.row.g-3(method="POST", action="/employeeReg", enctype="multipart/form-data", style="align-content:stretch;margin-left: 1px;")
-        //  row 1 
-        .row
-          //  client name 
-          .col-md-6
-            label.form-label(for="inputEmail4") Employee Name
-            input.form-control(type="text", placeholder="employee name", name="employeename")
-          .col-md-4
-            label.form-label(for="inputEmail4") User Name
-            input.form-control(type="text", placeholder="e.g. STC-xxx", name="username")
-        //  row 2 
-        .row
-          .col-md-4
-            label.form-label(for="inputEmail4") Truck No.
-            input.form-control(type="text", placeholder="e.g GCT-xxx", name="truckno")
-          //  role at the company 
-          .col-md-4
-            label.form-label(for="validationDefault04" ) Role
-            select.form-select#validationDefault04(name="role" required)
-              option( value="driver") Driver
-              option( value="conductor") Conductor
-          //  gender selection 
-          .col-md-4
-            label.form-label(for="validationDefault04") Gender
-            select.form-select#validationDefault04(name="gender" required)
-              option(value="male") Male
-              option(value="female") Female
-        //  row 3 
-        .row
-          //  age 
-          .col-md-4
-            label.form-label(for="validationDefault04") age
-            input.form-control#age(type="text" placeholder="age" name="age")
-          //  NIN Number 
-          .col-sm-5
-            label.form-label(for="inputAddress") NIN number
-            input.form-control#nationalID(type="text" placeholder="NIN" name="nin")
-        .row
-          .col-5
-            label.form-label(for="inputAddress2") Driver License
-            input.form-control#inputAddress2(type="text" placeholder="license number" name="driverLicense")
-          .col-md-7
-            label.form-label Police letter
-            input.form-control#formFileMultiple(type="file", name="policeletter")
-        //  tel number 
-        .row
-          .col-5
-            label.form-label(for="inputAddress") Tel Number
-            input.form-control#inputAddress(type="text" placeholder="+256-758-328", name="telnumber")
-          //  Residence 
-          .col-5
-            label.form-label(for="inputAddress") Residence
-            input.form-control#inputAddress(type="text", placeholder="e.g. Nsambya", name="residence")
+      form(method='POST',action='/employee', name='employeeRegForm',enctype="multipart/form-data")
+        label(for='fname') First Name
+        |         
+        input#fname(type='text', name='firstname', placeholder=" First Name")
+        |     
+        br|         
+        label(for='lname') last Name
+        |         
+        input#lname(type='text', name='lastname', placeholder="last Name")
+        |     
+        |
+        br
+        .row         
+        label(for='gender') Gender
+        |         
+        select#gender(name='gender',placeholder="select gender")
+          option(value='')
+          |  
+          |         
+          option(value='Female') Female
+          |         
+          option(value='Male') Male
+        label(for='age') Age
+
+          input#age(type='number', name='age', placeholder="age")
+        
+        label(for='nin') NIN
+          input#nin(type='string', name='nin', placeholder="nin")|         
+        
+        label(for='date') Date of birth|        
+          input#date(type='date', name='date', placeholder='date of birth')
+          |     
+        label(for='telephoneNo') phone Number
+          |         
+          input#telephoneNo(type='string', name='telephoneNo')
+
+        label(for='userName') UserName
+          input#userName(type ='string', name = 'userName',placeholder='uaer Name') 
+
+        label(for = 'password') Password
+          input#password(type="password",name = 'password',placeholder='password')  
+
+        label(for='image') Image
+          input#image(type='file',name="images")
+
         .row
           .col-11
             br
@@ -96,7 +88,7 @@ body
 
   // The employee list table
   .container-fluid
-    .col-md-6(style='width: 880px;margin-left:465px;margin-top:-500px;background-color: transparent;')
+    .col-md-6(style='width: 880px;height:500px;margin-left:465px;margin-top:-500px;background-color: transparent;')
       .col-sm-6(style='margin-bottom: 15px;')
         form.d-flex
           input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
@@ -144,70 +136,8 @@ body
           td GCT-101
           td 070-848-8261
           td Kitintale
-        tr
-          td STC-004
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-102
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-005
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-102
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-006
-          td Anecho Jeremy Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-103
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-007
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-103
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-008
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-104
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-009
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-104
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-010
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-105
-          td 070-848-8261
-          td Mulago
-      .clearfix
+        
+      .clearfix(style="margin-top:300px;margin-left:300px;")
         ul.pagination
           li.page-item.disabled
             a(href='#') Previous

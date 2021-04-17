@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='/css/bootstrap.min.css' rel='stylesheet')
+  // <link href="/public/css/styles.css" rel="stylesheet">
+  title login 
+// login form starts here
+body(style="background-image: url(/images/header-cover.jpg);background-repeat: no-repeat;")
+  .container(style='margin-top: 120px;width: 1000px;')
+    .row.justify-content-center
+      .col-md-12.col-lg-10
+        .wrap.d-md-flex
+          .text-wrap.p-4.p-lg-5.text-center.d-flex.align-items-center.order-md-last(style='background-image: url(/images/istockphoto3.jpg);background-repeat: no-repeat;width: 400px;')
+            .text.w-100(style='margin-top: -70px;')
+              h3(style='margin-top:50px;padding-top: 30px; margin-left: -230px;width: 800px;')
+                | Welcome to 
+                span(style='font-weight: 600; color: coral;') Stay
+                span(style='font-weight: 600;color:lightblue;') Clean
+              h6(style='margin-right:150px;padding-top: 10px;width: 250px;')
+                | Do You have an account?
+                a(href='login')
+                  br
+                  | Login 
+          .login-wrap.p-4.p-lg-5(style='background-color:gray;color:rgb(99, 43, 43);')
+            .d-flex
+              .w-100
+                h3.mb-4(style='color: rgb(102, 2, 2);') Front desk Officer
+            form.signin-form(method="POST" action='home')
+            .form-group.mb-4
+                label.label(for='Employeename') Employee Name
+                input.form-control(type='text' placeholder='e.g STC001' name='Employeename' required='')
+              .form-group.mb-4
+                label.label(for='name') Username
+                input.form-control(type='text' placeholder='e.g STC001' name='Username' required='')
+              .form-group.mb-3
+                label.label(for='password') Password
+                input.form-control(type='password' placeholder='Password' required='')
+              .form-check-inline
+                .form-check-inline
+                  input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='termsandconditions')
+                  label.form-check-label(for='flexCheckDefault')
+                    | I agree to the terms and conditions
+              .form-group
+                br
+                button.form-control.btn.btn-danger.submit.px-3(type='submit') Create Account
+  //
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+  //
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
