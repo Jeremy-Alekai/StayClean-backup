@@ -15,8 +15,8 @@ const mongoose = require('mongoose');
 //Require other user routes
 const loginForm = require('./routes/login-form');
 const adminHome = require('./routes/home');
-//const employeeReg = require('./routes/employeeReg');
-const employeeRoute = require('./routes/employeeReg');
+const employeereg = require('./routes/employeeReg');
+//const employeeRoute = require('./routes/employeeReg');
 const clientRegList = require('./routes/clientReg');
 const saleReport = require('./routes/report');
 
@@ -60,8 +60,8 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 // Usage of the created Routes
 app.use('/login', loginForm)
 app.use('/home', adminHome)
-    //app.use('/employeeReg', employeeReg)
-app.use('/employee', employeeRoute)
+app.use('/employeereg', employeereg)
+    //app.use('/employee', employeeRoute)
 app.use('/clientReg', clientRegList)
 app.use('/salesReport', saleReport)
 
