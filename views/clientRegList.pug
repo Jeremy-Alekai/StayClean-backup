@@ -30,72 +30,72 @@ body
         h2.mb-4(style='color:lightseagreen;') Client Registration Form
       
       // the registration form starts here
-      form.row.g-3(method='POST' action='#' enctype='multipart/form-data' style=' margin-top: 10px;')
+      form.row.g-3(method='POST' action='/clientReg' enctype='multipart/form-data' style=' margin-top: 10px;')
         .row
           
           // client name
           .col-md-6
-            label.form-label(for='inputEmail4') Client Name
-            input.form-control(type='text' placeholder='employee name' name='client name')
+            label.form-label(for='clientname') Client Name
+            input.form-control#clientname(type='text' placeholder='employee name' name='clientname')
           // type of client
           .col-md-5
-            label.form-label(for='validationDefault04') Type of Client
-            select#validationDefault04.form-select(required='')
-              option Individual
-              option Business
+            label.form-label(for='typeofclient') Type of Client
+            select#typeofclient.form-select(name='typeofclient')
+              option(value='Individual') Individual
+              option(value='Business') Business
         // row 2 starts here
         .row
           .col-md-5
-            label.form-label(for='validationDefault04') Type of Request
-            select#validationDefault04.form-select(required='')
-              option Subscription
-              option One Time
+            label.form-label(for='typeofrequest') Type of Request
+            select#typeofrequest.form-select(name='typeofrequest')
+              option(value='subscription') Subscription
+              option(value='oneTime') One Time
           // service requested for
           .col-6(style='margin-left:24px;')
             label.form-label  Service requested for
             br
             .form-check-inline
-              input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='sewage/septic tank')
-              label.form-check-label(for='flexCheckDefault')
+              input#sewageorseptictank.form-check-input(type='checkbox' value='' name='sewageorseptictank')
+              label.form-check-label(for='sewageorseptictank')
                 | Sewage/Septic tank
             .form-check
-              input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='gabbage collection')
-              label.form-check-label(for='flexCheckChecked')
+              input#gabbagecollection.form-check-input(type='checkbox' value='' name='gabbagecollection')
+              label.form-check-label(for='gabbagecollection')
                 | Gabbage Collection
         // 2nd row ends here
         // 3rd row starts here
         // trucks orders
         .row
           .col-4
-            label.form-label(for='inputAddress') Trucks needed
+            label.form-label(for='trucksneeded') Trucks needed
             .col(style='width: 70px;')
-              select#validationDefault04.form-select(required='')
-                option 1
-                option 2
-                option 3
-                option 4
+              select#trucksneeded.form-select( name='trucksneeded')
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
           // arrival time
           .col-5(style='margin-left: -20px;')
-            label.form-label(for='inputAddress ') Req. Arrival time
-            .col(style='width: 90px;')
-              select#validationDefault04.form-select(required='')
+            label.form-label(for='timeofrequest ') Time of Request 
+            .col(style='width: 115px;')
+              select#timeofrequest.form-select(name='timeofrequest')
                 option ...
-                option 8:00-10:00am
-                option 10:00-12:00am
-                option 12:00-2:00pm
-                option 2:00-4:00pm
+                option(value='8:00am-10:00am') 8:00am-10:00am
+                option(value='10:00am-12:00pm') 10:00am-12:00pm
+                option(value='12:00pm-10:00am') 12:00pm-2:00pm
+                option(value='2:00pm-4:00pm') 2:00pm-4:00pm
           .col-2(style='margin-left: -40px;')
-            label.form-label(for='inputAddress ') Location
-            input#inputAddress.form-control(type='text ' style='width: 120px;' placeholder='e.g. Nsambya ')
+            label.form-label(for='location ') Location
+            input#location.form-control(type='text ' style='width: 120px;' placeholder='e.g. Nsambya ' name='location')
         // 
         .row
           // NIN number
           .col-5
-            label.form-label(for='inputAddress ') NIN number
-            input#inputAddress.form-control(type='text ' placeholder='NIN ' name='nin ')
+            label.form-label(for='nin') NIN number
+            input#nin.form-control(type='text' placeholder='NIN ' name='nin ')
           // tel number
           .col-md-5
-            label.form-label(for='inputAddress ') Tel Number
+            label.form-label(for='telnumber ') Tel Number
             //
               <div class="col-7">
               <select class="form-select" id="validationDefault04" required>
@@ -104,20 +104,15 @@ body
               </select>
               </div>
             .col-
-              input#inputAddress.form-control(type='text ' placeholder='+256 759 588 328 ' name='tel number ')
+              input#telnumber.form-control(type='text ' placeholder='+256 759 588 328 ' name='tel number ')
         // 4th row starts here
         // Residence
         .row
-          .col-
-            .form-check-inline
-              .form-check-inline
-                br
-                input#inlineCheckbox3.form-check-input(type='checkbox' value='' name='sewage/septic tank')
-                label.form-check-label(for='flexCheckDefault') I agree with the terms and conditions
-                 
+          .col
+          
             br
             .col-12(style='margin-top: 12px;')
-              button.btn.btn-primary(style='width: 300px;height: 40px; ' type='submit ') Register
+              button.btn.btn-primary(style='width: 400px;height: 40px; ' type='submit ') Register
     // The employee list
     .container-fluid
       .col-md-6(style='width: 880px;margin-left:445px;margin-top:-500px;background-color: transparent;')
@@ -126,111 +121,40 @@ body
             input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
             button.btn.btn-outline-primary(type='submit') Search
         table.table.table-striped.table-hover
-          tr.table-dark(style='font-weight: bold;')
-            th Username
-            //
-              Note to self: employee usernames will start with digit(0) 001,002 etc.
-              The client username will start with digit(1) 101, 102 etc.
-            th Employee Name
-            th(colspan='0.5') Gender
-            th Age
-            th Role
-            th Truck No
-            // The truck alphanumeric will start with GCT-101, GTC Stands for Garbbage Cleaning Truck
-            th Tel Number
-            th Residence
-            th Action
-          tr
-            td STC-001
-            td Jeremy Alekai
-            td M
-            td 35
-            td Driver
-            td GCT-101
-            td 070-848-8261
-            td Mulago
-            td
-              a(href='#' data-toggle='modal' data-target='#editEmployee')
-                svg.bi.bi-pencil-square(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                  path(d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z')
-                  path(fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z')
-                // modal form  starts here
-                // modal form ends here
-              a(href='#' style='margin-left: 12px;')
-                svg.bi.bi-trash-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='darkred' viewbox='0 0 16 16')
-                  path(d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z')
-          tr
-            td STC-003
-            td Shawn Murphy
-            td M
-            td 25
-            td Conductor
-            td GCT-101
-            td 070-848-8261
-            td Kitintale
-          tr
-            td STC-004
-            td Jeremy Alekai
-            td M
-            td 35
-            td Driver
-            td GCT-102
-            td 070-848-8261
-            td Mulago
-          tr
-            td STC-005
-            td Shawn Murphy
-            td M
-            td 25
-            td Conductor
-            td GCT-102
-            td 070-848-8261
-            td Kitintale
-          tr
-            td STC-006
-            td Anecho Jeremy Jeremy Alekai
-            td M
-            td 35
-            td Driver
-            td GCT-103
-            td 070-848-8261
-            td Mulago
-          tr
-            td STC-007
-            td Shawn Murphy
-            td M
-            td 25
-            td Conductor
-            td GCT-103
-            td 070-848-8261
-            td Kitintale
-          tr
-            td STC-008
-            td Jeremy Alekai
-            td M
-            td 35
-            td Driver
-            td GCT-104
-            td 070-848-8261
-            td Mulago
-          tr
-            td STC-009
-            td Shawn Murphy
-            td M
-            td 25
-            td Conductor
-            td GCT-104
-            td 070-848-8261
-            td Kitintale
-          tr
-            td STC-010
-            td Jeremy Alekai
-            td M
-            td 35
-            td Driver
-            td GCT-105
-            td 070-848-8261
-            td Mulago
+          thead 
+            tr.table-dark(style='font-weight: bold;')
+              th Client Name
+              //
+                Note to self: employee usernames will start with digit(0) 001,002 etc.
+                The client username will start with digit(1) 101, 102 etc.
+              th Type Of Client 
+              th Service 
+              th Time Of Request
+              th Tel Number
+              th Location 
+              // The truck alphanumeric will start with GCT-101, GTC Stands for Garbbage Cleaning Truck
+              th Action
+            tbody 
+            if users.length
+            each user in users
+              tr
+                td #{user.clientname} 
+                td #{user.typeofclient} 
+                td #{user.typeofrequest} 
+                td #{user.timeofrequest} 
+                td #{user.telnumber} 
+                td #{user.location} 
+                td 
+                  a(href='#' data-toggle='modal' data-target='#editEmployee')
+                    svg.bi.bi-pencil-square(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                      path(d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z')
+                      path(fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z')
+                    // modal form  starts here
+                    // modal form ends here
+                  a(href='#' style='margin-left: 12px;')
+                    svg.bi.bi-trash-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='darkred' viewbox='0 0 16 16')
+                      path(d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z')
+
         .clearfix
           ul.pagination
             li.page-item.disabled

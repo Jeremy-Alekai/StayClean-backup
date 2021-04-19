@@ -28,66 +28,66 @@ body
   
   // registration info
   .container-fluid
-    .container(style="width: 27rem;height:500px;background-color:whitesmokes; align-content: center;margin-left: 10px;margin-top:60px; background-color: lightsteelblue;")
+    .container(style="width: 27rem;height:500px;background-color:whitesmokes; align-content: center;margin-left: 2px;margin-top:60px; background-color: lightsteelblue;")
       //  <div class="card-body" style="width: 27rem;"> 
       //   
-      .form-head(style="background-color: rgb(71, 71, 71); width: 27rem;height: 70px;margin-top: -14px; margin-left: -12px;padding-top: 10px; text-align: center;")
+      .form-head(style="background-color: rgb(71, 71, 71); width: 27rem;max-height: 70px;margin-top: -14px; margin-left: -12px;padding-top: 10px; text-align: center;")
         h2.mb-4(style="color:lightseagreen;") Employee Registration Form
       br
       //  the registration form starts here 
-      form.row.g-3(method="POST", action="/employeereg", style="align-content:stretch;margin-left: 1px;")
+      form.row.g-3(method="POST", action="employeereg", style="align-content:stretch;margin-left: 1px;")
         //  row 1 
         .row
           //  client name 
           .col-md-6
-            label.form-label(for="inputEmail4") Employee Name
-            input.form-control(type="text", placeholder="employee name", name="employeename")
+            label.form-label(for="employeename") Employee Name
+            input.form-control#employeename(type="text", placeholder="employee name", name="employeename" )
           .col-md-4
-            label.form-label(for="inputEmail4") User Name
-            input.form-control(type="text", placeholder="e.g. STC-xxx", name="username")
+            label.form-label(for="username") User Name
+            input.form-control#username(type="text", placeholder="e.g. STC-xxx", name="username")
         //  row 2 
         .row
           .col-md-4
-            label.form-label(for="inputEmail4") Truck No.
-            input.form-control(type="text", placeholder="e.g GCT-xxx", name="truckno")
+            label.form-label(for="truckno") Truck No.
+            input.form-control#truckno(type="text", placeholder="e.g GCT-xxx", name="truckno")
           //  role at the company 
           .col-md-4
-            label.form-label(for="validationDefault04" ) Role
-            select.form-select#validationDefault04(name="role" required)
-              option( value="driver") Driver
-              option( value="conductor") Conductor
+            label.form-label(for="role" ) Role
+            select.form-select#role(name="role" required)
+              option( value="Driver") Driver
+              option( value="Conductor") Conductor
           //  gender selection 
           .col-md-4
-            label.form-label(for="validationDefault04") Gender
-            select.form-select#validationDefault04(name="gender" required)
-              option(value="male") Male
-              option(value="female") Female
+            label.form-label(for="gender") Gender
+            select.form-select#gender(name="gender" required)
+              option(value="Male") Male
+              option(value="Female") Female
         //  row 3 
         .row
           //  age 
           .col-md-4
-            label.form-label(for="validationDefault04") age
+            label.form-label(for="age") age
             input.form-control#age(type="text" placeholder="age" name="age")
           //  NIN Number 
           .col-sm-5
-            label.form-label(for="inputAddress") NIN number
+            label.form-label(for="nationalID") NIN number
             input.form-control#nationalID(type="text" placeholder="NIN" name="nin")
         .row
           .col-5
-            label.form-label(for="inputAddress2") Driver License
-            input.form-control#inputAddress2(type="text" placeholder="license number" name="driverLicense")
+            label.form-label(for="license") Driver License
+            input.form-control#license(type="text" placeholder="license number" name="driverLicense")
           .col-md-7
             label.form-label Police letter
             input.form-control#formFileMultiple(type="file", name="policeletter")
         //  tel number 
         .row
           .col-5
-            label.form-label(for="inputAddress") Tel Number
-            input.form-control#inputAddress(type="text" placeholder="+256-758-328", name="telnumber")
+            label.form-label(for="telno") Tel Number
+            input.form-control#telno(type="text" placeholder="+256-758-328", name="telnumber")
           //  Residence 
           .col-5
-            label.form-label(for="inputAddress") Residence
-            input.form-control#inputAddress(type="text", placeholder="e.g. Nsambya", name="residence")
+            label.form-label(for="residence") Residence
+            input.form-control#residence(type="text", placeholder="e.g. Nsambya", name="residence")
         .row
           .col-11
             br
@@ -96,133 +96,53 @@ body
 
   // The employee list table
   .container-fluid
-    .col-md-6(style='width: 880px;margin-left:465px;margin-top:-500px;background-color: transparent;')
+    .col-md-6(style='width: 900px;max-height:500px;margin-left:444px;margin-top:-500px;background-color: transparent;')
       .col-sm-6(style='margin-bottom: 15px;')
         form.d-flex
           input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
           button.btn.btn-outline-primary(type='submit') Search
       table.table.table-striped.table-hover
-        tr.table-dark(style='font-weight: bold;')
-          th Username
-          //
-            Note to self: employee usernames will start with digit(0) 001,002 etc.
-            The client username will start with digit(1) 101, 102 etc.
-          th Employee Name
-          th Gender
-          th Age
-          th Role
-          th Truck No
-          // The truck alphanumeric will start with GCT-101, GTC Stands for Garbbage Cleaning Truck
-          th Tel Number
-          th Residence
-          th Action
-        tr
-          td STC-001
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-101
-          td 070-848-8261
-          td Mulago
-          td
-            a(href='#' data-toggle='modal' data-target='#editEmployee')
-              svg.bi.bi-pencil-square(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                path(d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z')
-                path(fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z')
-              // modal form  starts here
-              // modal form ends here
-            a(href='#' style='margin-left: 12px;')
-              svg.bi.bi-trash-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='darkred' viewbox='0 0 16 16')
-                path(d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z')
-        tr
-          td STC-003
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-101
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-004
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-102
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-005
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-102
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-006
-          td Anecho Jeremy Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-103
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-007
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-103
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-008
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-104
-          td 070-848-8261
-          td Mulago
-        tr
-          td STC-009
-          td Shawn Murphy
-          td M
-          td 25
-          td Conductor
-          td GCT-104
-          td 070-848-8261
-          td Kitintale
-        tr
-          td STC-010
-          td Jeremy Alekai
-          td M
-          td 35
-          td Driver
-          td GCT-105
-          td 070-848-8261
-          td Mulago
-      .clearfix
-        ul.pagination
-          li.page-item.disabled
-            a(href='#') Previous
-          li.page-item
-            a.page-link(href='#') 1
-          li.page-item
-            a.page-link(href='#') 2
-          li.page-item.active
-            a.page-link(href='#') 3
-          li.page-item
-            a.page-link(href='#') 4
-          li.page-item
-            a.page-link(href='#') 5
-          li.page-item
-            a.page-link(href='#') Next
-    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+        thead
+          tr.table-dark(style='font-weight: bold;')
+            th Username
+            //
+              Note to self: employee usernames will start with digit(0) 001,002 etc.
+              The client username will start with digit(1) 101, 102 etc.
+            th Employee
+            th Truckno
+            th Role
+            th Gender
+            th Age
+            th NIN
+            // The truck alphanumeric will start with GCT-101, GTC Stands for Garbbage Cleaning Truck
+            th Tel Number
+            th Residence
+            th Action
+        tbody
+        if users.length
+        each user in users
+          tr
+            td #{user.username} 
+            td #{user.employeename} 
+            td #{user.truckno} 
+            td #{user.role} 
+            td #{user.gender} 
+            td #{user.age} 
+            td #{user.nin} 
+            td #{user.telnumber} 
+            td #{user.residence} 
+            td 
+              a(href='#' data-toggle='modal' data-target='#editEmployee')
+                svg.bi.bi-pencil-square(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                  path(d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z')
+                  path(fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z')
+                // modal form  starts here
+                // modal form ends here
+              a(href='#' style='margin-left: 12px;')
+                svg.bi.bi-trash-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='darkred' viewbox='0 0 16 16')
+                  path(d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z')
+        
+    
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')

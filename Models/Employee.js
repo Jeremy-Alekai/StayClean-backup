@@ -1,46 +1,62 @@
-// Requiring mongoose.
+//require mongoose
 const mongoose = require('mongoose');
-// Create a schema for data that is needed to be saved.
+
+//create a schema for the data you need to save
 const employeeSchema = new mongoose.Schema({
-        firstname: {
-            type: String,
 
-        },
-        lastname: {
-            type: String,
+    username: {
+        type: String,
+        // required: 'Please Enter username'
+    },
 
-        },
-        nin: {
-            type: String,
-            unique: true,
-        },
-        gender: {
-            type: String
-        },
-        age: {
-            type: String,
+    truckno: {
+        type: String,
+        // required: 'Please Enter username'
+    },
 
-        },
-        date: {
-            type: String,
+    employeename: {
+        type: String,
+        // required: 'Please Enter employee name'
+    },
+    gender: {
+        type: String,
+    },
+    role: {
+        type: String,
+        trim: true
+    },
+    age: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    telnumber: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    nin: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    driverLicense: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    policeletter: {
+        type: String,
+        // required: 'Please Enter username'
+    },
 
-        },
-        telephoneNo: {
-            type: String,
-        },
-        userName: {
-            type: String,
-        },
-        password: {
-            type: String,
-
-        },
-        image: {
-            type: String,
-        },
+    residence: {
+        type: String,
+        // required: 'Please Enter username'
+    },
 
 
+    imageupload: {
+        type: String,
+    },
 
-    })
-    // Export mongoose model.
-module.exports = mongoose.model('Employee', employeeSchema)
+})
+
+//export the mongoose model
+module.exports = mongoose.model('Employee', employeeSchema);

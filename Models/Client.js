@@ -2,46 +2,45 @@
 const mongoose = require('mongoose');
 
 //create a schema for the data you need to save
-const employeeSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
 
-    username: {
+    clientname: {
         type: String,
         // required: 'Please Enter username'
     },
 
-    truckno: {
+    typeofclient: {
         type: String,
         // required: 'Please Enter username'
     },
 
-    employeename: {
+    typeofrequest: {
         type: String,
         // required: 'Please Enter employee name'
     },
 
-    role: {
+    timeofrequest: {
         type: String,
-        trim: true
+        // required: 'Please Enter username'
     },
-
+    trucksneeded: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    location: {
+        type: String,
+        // required: 'Please Enter username'
+    },
+    nin: {
+        type: String,
+        // required: 'Please Enter username'
+    },
     telnumber: {
         type: String,
         // required: 'Please Enter username'
     },
 
-    residence: {
-        type: String,
-        // required: 'Please Enter username'
-    },
-
-    gender: {
-        type: String,
-    },
-    imageupload: {
-        type: String,
-    },
-
 })
 
 //export the mongoose model
-module.exports = mongoose.model('Employee', employeeSchema);
+module.exports = mongoose.model('Client', clientSchema);

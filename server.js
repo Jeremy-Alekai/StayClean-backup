@@ -16,7 +16,6 @@ const mongoose = require('mongoose');
 const loginForm = require('./routes/login-form');
 const adminHome = require('./routes/home');
 const employeereg = require('./routes/employeeReg');
-//const employeeRoute = require('./routes/employeeReg');
 const clientRegList = require('./routes/clientReg');
 const saleReport = require('./routes/report');
 
@@ -61,9 +60,8 @@ app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use('/login', loginForm)
 app.use('/home', adminHome)
 app.use('/employeereg', employeereg)
-    //app.use('/employee', employeeRoute)
 app.use('/clientReg', clientRegList)
-app.use('/salesReport', saleReport)
+app.use('/report', saleReport)
 
 
 //app.post('/employeeReg', (req, res) => {
